@@ -22,12 +22,13 @@
     }
 
 
-    function getCrops () {
+    function getCrops ($cropId) {
         global $db;
         
         $results = [];
 
         $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY cropId"); 
+        $stmt->bindValue(':cropId', $cropId);
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
