@@ -76,10 +76,9 @@
       </div>
     </div>
   </form>
-  
+
   <div class="col-sm-offset-2 col-sm-10"><a href="./cropView.php">View Crop Inventory</a></div>
   <div class="col-sm-offset-2 col-sm-10"><a href="./cropHome.php">Home Page</a></div>
 </div>
-<?php include __DIR__ . '/../include/footer.php'; ?>
 </body>
 </html>

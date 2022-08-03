@@ -6,12 +6,12 @@
         global $db;
         $results = "Not added";
 
-        $stmt = $db->prepare("INSERT INTO crops SET cropName = :cropName, cropPlanted = :cropPlanted, cropQty = :cropQty");
+        $stmt = $db->prepare("INSERT INTO crops SET cropname = :cropname, cropplanted = :cropplanted, cropqty = :cropqty");
 
         $binds = array(
-            ":cropName" => $n,
-            ":cropPlanted" => $d,
-            ":cropQty" => $q
+            ":cropname" => $n,
+            ":cropplanted" => $d,
+            ":cropqty" => $q
         );
         
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
