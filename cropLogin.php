@@ -6,14 +6,14 @@
 
 
     if(isset($_POST['login'])){
-        $userName = pgsqli_real_escape_string($con,$_POST['userName']);
-        $password = pgsqli_real_escape_string($con,$_POST['password']);
+        $userName = pgsql_real_escape_string($con,$_POST['userName']);
+        $password = pgsql_real_escape_string($con,$_POST['password']);
 
     if ($userName = !"" && $password = !""){
 
         $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and password='".$password."'";
-        $result = pgqli_query($con,$sql_query);
-        $row = pgsqli_fetch_array($result);
+        $result = pgsql_query($con,$sql_query);
+        $row = pgsql_fetch_array($result);
 
         $count = $row['cntUser'];
 

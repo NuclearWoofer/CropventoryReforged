@@ -1,5 +1,3 @@
-<!-------------------------------------------------SEARCH AND SORT--------------------------------------------------------------------------------------------------------->
-
 <?php 
     include __DIR__ . '/model_crop.php';
     $action = filter_input(INPUT_POST, 'action');
@@ -11,7 +9,7 @@
     else if ( $action === 'search' && $fieldName != '' ) {
             $crops = searchCrops ($fieldName, $fieldValue);
     } else {
-        $crops = getcrops ();  
+        $crops = getCrops ();  
     }
 
     if(isset($_POST['logout'])){

@@ -1,6 +1,6 @@
 <?php
-        include __DIR__ . '/model_crop.php';
-        include __DIR__ . '/functions.php';
+        include /* __DIR__ .  */'/model_crop.php';
+        include /* __DIR__ .  */'/functions.php';
        if (isPostRequest()) {
         $cropName = filter_input(INPUT_POST, 'cropName');
         $cropPlanted = filter_input(INPUT_POST, 'cropPlanted');
