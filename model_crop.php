@@ -22,20 +22,20 @@
     }
 
 
-    function getCrops () {
-        global $db;
+    // function getCrops () {
+    //     global $db;
         
-        $results = [];
+    //     $results = [];
 
-        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY cropId"); 
+    //     $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY cropId"); 
         
-        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
-             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //     if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
+    //          $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                  
-         }
+    //      }
          
-         return ($results);
-    }
+    //      return ($results);
+    // }
 
     
     function getCrop ($cropId) {
@@ -139,7 +139,7 @@ function getFieldNames () {
 }
 
 
-/* 
+
 function checkLogin ($userName, $password) {
     global $db;
     $stmt = $db->prepare("SELECT id FROM users WHERE userName =:userName AND userPassword = :password");
@@ -151,4 +151,4 @@ function checkLogin ($userName, $password) {
    
     return( $stmt->rowCount() > 0);
     
-} */
+}
