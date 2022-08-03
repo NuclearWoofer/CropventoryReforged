@@ -1,0 +1,19 @@
+{
+    "workbench.colorTheme": "Solarized Dark",
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "vscode-icons",
+    "aws.profile": "profile:Malopez1",
+    "pgsql.connections": [
+        {
+            "host": "ec2-50-19-255-190.compute-1.amazonaws.com",
+            "dbname": "dbbrve4ld95mpp",
+            "user": "pmuibcycqdcjyx",
+            "password": "",
+            "emptyPasswordInput": false,
+            "port": "5432",
+            "profileName": "CropventoryReforged"
+        }
+    ],
+    "php.validate.executablePath": ""
+}
