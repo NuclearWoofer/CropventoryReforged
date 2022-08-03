@@ -1,6 +1,6 @@
 <?php
     include (__DIR__ . '/model/db.php');
-//Cropid may be cropId;
+
     
     function addCrops ($n, $d, $q) {
         global $db;
@@ -27,7 +27,7 @@
         
         $results = [];
 
-        $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops ORDER BY cropid"); 
+        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY cropId"); 
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,13 +38,13 @@
     }
 
     
-    function getCrop ($cropid) {
+    function getCrop ($cropId) {
         global $db;
        
        $results = [];
        
-       $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops WHERE cropid=:cropid");
-       $stmt->bindValue(':cropid', $cropid);
+       $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE cropId=:cropId");
+       $stmt->bindValue(':cropId', $cropId);
       
        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,14 +57,14 @@
            
 
     
-    function updateCrop ($cropid, $cropName, $cropQty, $cropPlanted) {
+    function updateCrop ($cropId, $cropName, $cropQty, $cropPlanted) {
         global $db;
 
         $results = "";
         
-        $stmt = $db->prepare("UPDATE crops SET cropName = :cropName, cropQty = :cropQty, cropPlanted = :cropPlanted WHERE cropid =:cropid");
+        $stmt = $db->prepare("UPDATE crops SET cropName = :cropName, cropQty = :cropQty, cropPlanted = :cropPlanted WHERE cropId =:cropId");
         
-        $stmt->bindValue(':cropid', $cropid);
+        $stmt->bindValue(':cropId', $cropId);
         $stmt->bindValue(':cropName', $cropName);
         $stmt->bindValue(':cropQty', $cropQty);
         $stmt->bindValue(':cropPlanted', $cropPlanted);
@@ -77,14 +77,14 @@
     }
 
         
-    function deleteCrop ($cropid) {
+    function deleteCrop ($cropId) {
         global $db;
         
         $results = "Data was not deleted";
     
-        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropid=:cropid");
+        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropId=:cropId");
         
-        $stmt->bindValue(':cropid', $cropid);
+        $stmt->bindValue(':cropId', $cropId);
             
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Crop Deleted';
@@ -98,7 +98,7 @@
     global $db;
       
      $results = [];
-      $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops WHERE $column LIKE :search");
+      $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE $column LIKE :search");
       $search = '%'.$searchValue.'%';
       
       $stmt->bindValue(':search', $search);
@@ -119,7 +119,7 @@ function sortCrops ($column, $order) {
      $results = [];
      
     
-     $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops ORDER BY $column $order");
+     $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY $column $order");
      
      
      if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
