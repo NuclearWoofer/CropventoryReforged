@@ -38,21 +38,21 @@
     }
 
     
-    function getCrop ($cropId) {
-        global $db;
+//     function getCrop ($cropId) {
+//         global $db;
        
-       $results = [];
+//        $results = [];
        
-       $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE cropId=:cropId");
-       $stmt->bindValue(':cropId', $cropId);
+//        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE cropId=:cropId");
+//        $stmt->bindValue(':cropId', $cropId);
       
-       if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
-            $results = $stmt->fetch(PDO::FETCH_ASSOC);
+//        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
+//             $results = $stmt->fetch(PDO::FETCH_ASSOC);
                        
-        }
+//         }
         
-        return ($results);
-   }
+//         return ($results);
+//    }
 
            
 
