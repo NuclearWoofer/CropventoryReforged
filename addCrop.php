@@ -6,7 +6,6 @@
         $cropName = filter_input(INPUT_POST, 'cropName');
         $cropPlanted = filter_input(INPUT_POST, 'cropPlanted');
         $cropQty = filter_input(INPUT_POST, 'cropQty');
-        
            $result = addCrops ($cropName, $cropPlanted, $cropQty);   
        }
     
