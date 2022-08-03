@@ -6,12 +6,12 @@
         global $db;
         $results = "Not added";
 
-        $stmt = $db->prepare("INSERT INTO crops SET cropname = :cropname, cropplanted = :p, cropqty = :cropqty");
+        $stmt = $db->prepare("INSERT INTO crops SET cropName = :cropName, cropPlanted = :cropPlanted, cropQty = :cropQty");
 
         $binds = array(
-            ":cropname" => $n,
-            ":p" => $d,
-            ":cropqty" => $q
+            ":cropName" => $n,
+            ":cropPlanted" => $d,
+            ":cropQty" => $q
         );
         
         if ($stmt->execute($binds) && $stmt->rowCount() > 0) {
@@ -27,7 +27,7 @@
         
         $results = [];
 
-        $stmt = $db->prepare("SELECT cropid, cropname, p, cropqty FROM crops ORDER BY cropid"); 
+        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY cropId"); 
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,13 +38,13 @@
     }
 
     
-    function getCrop ($cropid) {
+    function getCrop ($cropId) {
         global $db;
        
        $results = [];
        
-       $stmt = $db->prepare("SELECT cropid, cropname, p, cropqty FROM crops WHERE cropid=:cropid");
-       $stmt->bindValue(':cropid', $cropid);
+       $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE cropId=:cropId");
+       $stmt->bindValue(':cropId', $cropId);
       
        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,17 +57,17 @@
            
 
     
-    function updateCrop ($cropid, $cropname, $cropqty, $p) {
+    function updateCrop ($cropId, $cropName, $cropQty, $cropPlanted) {
         global $db;
 
         $results = "";
         
-        $stmt = $db->prepare("UPDATE crops SET cropname = :cropname, cropqty = :cropqty, p = :p WHERE cropid =:cropid");
+        $stmt = $db->prepare("UPDATE crops SET cropName = :cropName, cropQty = :cropQty, cropPlanted = :cropPlanted WHERE cropId =:cropId");
         
-        $stmt->bindValue(':cropid', $cropid);
-        $stmt->bindValue(':cropname', $cropname);
-        $stmt->bindValue(':cropqty', $cropqty);
-        $stmt->bindValue(':p', $p);
+        $stmt->bindValue(':cropId', $cropId);
+        $stmt->bindValue(':cropName', $cropName);
+        $stmt->bindValue(':cropQty', $cropQty);
+        $stmt->bindValue(':cropPlanted', $cropPlanted);
         
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Crop Updated!';
@@ -77,14 +77,14 @@
     }
 
         
-    function deleteCrop ($cropid) {
+    function deleteCrop ($cropId) {
         global $db;
         
         $results = "Data was not deleted";
     
-        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropid=:cropid");
+        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropId=:cropId");
         
-        $stmt->bindValue(':cropid', $cropid);
+        $stmt->bindValue(':cropId', $cropId);
             
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Crop Deleted';
@@ -98,7 +98,7 @@
     global $db;
       
      $results = [];
-      $stmt = $db->prepare("SELECT cropid, cropname, p, cropqty FROM crops WHERE $column LIKE :search");
+      $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE $column LIKE :search");
       $search = '%'.$searchValue.'%';
       
       $stmt->bindValue(':search', $search);
@@ -119,7 +119,7 @@ function sortCrops ($column, $order) {
      $results = [];
      
     
-     $stmt = $db->prepare("SELECT cropid, cropname, p, cropqty FROM crops ORDER BY $column $order");
+     $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops ORDER BY $column $order");
      
      
      if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
@@ -132,7 +132,7 @@ function sortCrops ($column, $order) {
 
 
 function getFieldNames () {
-    $fieldNames = ['cropname', 'p' ,'cropqty'];
+    $fieldNames = ['cropName', 'cropPlanted' ,'cropQty'];
     
     return ($fieldNames);
     
