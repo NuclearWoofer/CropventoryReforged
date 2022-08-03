@@ -1,6 +1,6 @@
 <?php
     include (__DIR__ . '/model/db.php');
-
+//Cropid may be cropId;
     
     function addCrops ($n, $d, $q) {
         global $db;
@@ -27,7 +27,7 @@
         
         $results = [];
 
-        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty, cropEstHarvest, category, subCategory FROM crops ORDER BY cropId"); 
+        $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops ORDER BY cropid"); 
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -38,13 +38,13 @@
     }
 
     
-    function getCrop ($cropId) {
+    function getCrop ($cropid) {
         global $db;
        
        $results = [];
        
-       $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty, cropEstHarvest, category, subCategory FROM crops WHERE cropId=:cropId");
-       $stmt->bindValue(':cropId', $cropId);
+       $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops WHERE cropid=:cropid");
+       $stmt->bindValue(':cropid', $cropid);
       
        if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -57,14 +57,14 @@
            
 
     
-    function updateCrop ($cropId, $cropName, $cropQty, $cropPlanted, $category, $subCategory) {
+    function updateCrop ($cropid, $cropName, $cropQty, $cropPlanted) {
         global $db;
 
         $results = "";
         
-        $stmt = $db->prepare("UPDATE crops SET cropName = :cropName, cropQty = :cropQty, cropPlanted = :cropPlanted, category = :category, subCategory = :subCategory WHERE cropId =:cropId");
+        $stmt = $db->prepare("UPDATE crops SET cropName = :cropName, cropQty = :cropQty, cropPlanted = :cropPlanted WHERE cropid =:cropid");
         
-        $stmt->bindValue(':cropId', $cropId);
+        $stmt->bindValue(':cropid', $cropid);
         $stmt->bindValue(':cropName', $cropName);
         $stmt->bindValue(':cropQty', $cropQty);
         $stmt->bindValue(':cropPlanted', $cropPlanted);
@@ -77,14 +77,14 @@
     }
 
         
-    function deleteCrop ($cropId) {
+    function deleteCrop ($cropid) {
         global $db;
         
         $results = "Data was not deleted";
     
-        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropId=:cropId");
+        $stmt = $db->prepare("DELETE FROM cropsInventory WHERE cropid=:cropid");
         
-        $stmt->bindValue(':cropId', $cropId);
+        $stmt->bindValue(':cropid', $cropid);
             
         if ($stmt->execute() && $stmt->rowCount() > 0) {
             $results = 'Crop Deleted';
@@ -98,7 +98,7 @@
     global $db;
       
      $results = [];
-      $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty, cropEstHarvest, category, subCategory FROM crops WHERE $column LIKE :search");
+      $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops WHERE $column LIKE :search");
       $search = '%'.$searchValue.'%';
       
       $stmt->bindValue(':search', $search);
@@ -119,7 +119,7 @@ function sortCrops ($column, $order) {
      $results = [];
      
     
-     $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty, cropEstHarvest, category, subCategory FROM crops ORDER BY $column $order");
+     $stmt = $db->prepare("SELECT cropid, cropName, cropPlanted, cropQty FROM crops ORDER BY $column $order");
      
      
      if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
@@ -132,14 +132,14 @@ function sortCrops ($column, $order) {
 
 
 function getFieldNames () {
-    $fieldNames = ['cropName', 'cropPlanted' ,'cropQty', 'cropEstHarvest', 'category' , 'subCategory'];
+    $fieldNames = ['cropName', 'cropPlanted' ,'cropQty'];
     
     return ($fieldNames);
     
 }
 
 
-
+/* 
 function checkLogin ($userName, $password) {
     global $db;
     $stmt = $db->prepare("SELECT id FROM users WHERE userName =:userName AND userPassword = :password");
@@ -151,4 +151,4 @@ function checkLogin ($userName, $password) {
    
     return( $stmt->rowCount() > 0);
     
-}
+} */

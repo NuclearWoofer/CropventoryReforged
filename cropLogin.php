@@ -5,30 +5,30 @@
     include __DIR__ . "/model/db.php";
 
 
-    if(isset($_POST['login'])){
-        $userName = pgsql_real_escape_string($con,$_POST['userName']);
-        $password = pgsql_real_escape_string($con,$_POST['password']);
+//     if(isset($_POST['login'])){
+//         $userName = pgsql_real_escape_string($con,$_POST['userName']);
+//         $password = pgsql_real_escape_string($con,$_POST['password']);
 
-    if ($userName = !"" && $password = !""){
+//     if ($userName = !"" && $password = !""){
 
-        $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and password='".$password."'";
-        $result = pgsql_query($con,$sql_query);
-        $row = pgsql_fetch_array($result);
+//         $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and password='".$password."'";
+//         $result = pgsql_query($con,$sql_query);
+//         $row = pgsql_fetch_array($result);
 
-        $count = $row['cntUser'];
+//         $count = $row['cntUser'];
 
-        $result = checkLogin($userName, $password);
+//         $result = checkLogin($userName, $password);
 
-        if($count > 0){
-            $_SESSION['userName'] = $userName;
-            header('Location: cropView.php');
-        }else{
-            echo "Invalid username and password";
-        }
+//         if($count > 0){
+//             $_SESSION['userName'] = $userName;
+//             header('Location: cropView.php');
+//         }else{
+//             echo "Invalid username and password";
+//         }
 
-    }
+//     }
 
-}
+// }
 ?>
 
 <!DOCTYPE html>

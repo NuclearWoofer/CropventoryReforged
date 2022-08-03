@@ -1,17 +1,31 @@
+<style>
+   th{
+        color: maroon;
+    }
+    table{
+       align-content: center;
+        margin-left: 300px;
+    }
+  
 
-<form  method="post">
-    <input type="hidden" name="action" value="sort">
-       <label>Sort By Field:&nbsp;&nbsp;&nbsp;</label>
-       <select name="fieldName">
-              <option value="">Select One</option>
-              <option value="cropName">Crop Name</option>
-              <option value="cropPlanted">Seed Sown Date</option>
-              
-          </select>
-       <input type="radio" name="fieldValue" value="ASC" checked />Ascending
-       <input type="radio" name="fieldValue" value="DESC" />Descending
-       
-      <button type="submit"  name="sortCrops">Sort</button>
-   
-      
-  </form>
+</style>
+<table class="table table-striped" >
+
+<thead>
+    <tr>
+        <th>Crop Name</th>
+        <th>Planted On</th>
+        <th>Quantity</th>
+        
+    </tr>
+</thead>
+<tbody>
+    <?php foreach ($crops as $row): ?>
+        <tr>
+            <td><?php echo $row['cropName']; ?></td> 
+            <td><?php echo $row['cropPlanted']; ?></td> 
+            <td><?php echo $row['cropQty']; ?></td> 
+        </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>

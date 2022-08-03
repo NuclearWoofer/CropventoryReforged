@@ -1,19 +1,39 @@
+<?php include __DIR__ . '/../include/header.php'; ?>
 <?php
-       //adding 
+        
         include __DIR__ . '/model_crop.php';
         include __DIR__ . '/functions.php';
        if (isPostRequest()) {
         $cropName = filter_input(INPUT_POST, 'cropName');
         $cropPlanted = filter_input(INPUT_POST, 'cropPlanted');
         $cropQty = filter_input(INPUT_POST, 'cropQty');
-           $result = addCrops ($cropName, $cropPlanted, $cropQty);   
+           $result = addCrops ($cropName, $cropPlanted, $cropQty);
        }
-    
-?>
-
-<h2>Add Crops</h2>
-<h3>Here we can add more crops / plants to your inventory.</h3>
-      
+    ?>
+<html lang="en">
+<head>
+  <title>Add Crops</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+    h2, h3{
+        padding-top: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        color:#1E8449;
+        text-align: center;
+    }
+    body{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+</style>
+<body>
+<div class="container" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
+  <h2>Add Crops</h2>
+  <h3>Here we can add more crops / plants to your inventory.</h3>
   <form class="form-horizontal" action="addCrop.php" method="post">
 <!--Date the crop was planted-->
     <div class="form-group">
@@ -45,7 +65,6 @@
         </select>
        </div>
     </div>
-
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <button type="submit" class="btn btn-default">Plant this Plant!</button>
@@ -57,4 +76,10 @@
       </div>
     </div>
   </form>
-  </div>
+  
+  <div class="col-sm-offset-2 col-sm-10"><a href="./cropView.php">View Crop Inventory</a></div>
+  <div class="col-sm-offset-2 col-sm-10"><a href="./cropHome.php">Home Page</a></div>
+</div>
+<?php include __DIR__ . '/../include/footer.php'; ?>
+</body>
+</html>
