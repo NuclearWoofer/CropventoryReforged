@@ -70,17 +70,17 @@
         margin-top: 50px;
         padding-top: 10px;
         font-size: 40px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Cambria;
         color:#7CCE44;
     } 
 
     body{
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Cambria;
         text-align: center;
     }
 
 </style>
-<title>Cropventory: Login & Register</title>
+<title>Cropventory|Login</title>
 </head>
 <body>
 
@@ -88,7 +88,7 @@
 <div id="logo">
 <img src="images/Cropventoryv2.png" alt="cropventory logo">
 </div>
-<h3>Welcome Farmer! Please Log in.</h3>
+<h2>Welcome Farmer!</h2>
 <div class="flex-container">
 <div class="mainDiv">
     <form method="post" action="login.php">
@@ -115,7 +115,7 @@
 </div>
 
 
-<h3>Register Here</h3>
+<h2>Register Here</h2>
 <div class="flex-container">
 <div class="mainDiv">
     <form method="post" action="cropLogin.php">
@@ -138,8 +138,5 @@
     </div>
 </form>
 </div>
-<div class="col-sm-offset-2 col-sm-10"><a href="./cropView.php">Enter Cropventory</a></div>
-
-
 </body>
 </html>
