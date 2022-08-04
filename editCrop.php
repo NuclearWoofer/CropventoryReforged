@@ -103,7 +103,6 @@
         <a href="Search & Sort">Search & Sort</a>
         <a href="https://riphi.org/access-to-healthy-affordable-food/">Food Access Information</a>
         <a href="./documentation.html">Capstone Documentation</a>
-        <a href="./presentation.html">Presentation</a>
         <a href="./login.php">Logout</a>
   </div>
   <div class="container" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">
