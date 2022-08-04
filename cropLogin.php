@@ -68,14 +68,14 @@
     h1, h2, h3{
         align-items: center;
         margin-top: 50px;
-        padding-top: 10px;
+        padding-top: 15px;
         font-size: 40px;
-        font-family: Cambria;
+        font-family: Helvetica;
         color:#7CCE44;
     } 
 
     body{
-        font-family: Cambria;
+        font-family: Helvetica;
         text-align: center;
     }
 
