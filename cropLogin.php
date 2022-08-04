@@ -91,7 +91,7 @@
 <h2>Welcome Farmer!</h2>
 <div class="flex-container">
 <div class="mainDiv">
-    <form method="post" action="cropLogin.php">
+    <form method="post" action="Login.php">
        
         <div class="rowContainer">
             
@@ -106,7 +106,7 @@
         </div>
           <div class="rowContainer">
             <div class="col1">&nbsp;</div>
-            <div class="col2"><input  name="login" value="Login"  href="cropLogin.php" class="btn btn-warning"></div> 
+            <div class="col2"><input  name="login" value="Login"  href="Login.php" class="btn btn-warning"></div> 
         </div>
         
     </form>
