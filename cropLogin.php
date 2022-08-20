@@ -1,10 +1,18 @@
 <?php
 
+    //INCLUDES
     include_once __DIR__ . "/model_crop.php";
     include_once __DIR__ . "/functions.php";
     include __DIR__ . "/model/db.php";
 
+    // //DYNAMMODB CONNECTION
+    // use Aws\DynamoDb\DynamoDbClient;
+    // $client = DynamoDbClient::factory(array(
+    //     'profile' => '<profile in your aws credentials file>',
+    //     'region'  => '<region name>'
+    // ));
 
+    //PGADMIN SQLCONNECTION
     if(isset($_POST['login'])){
         $userName = pgsqli_real_escape_string($con,$_POST['userName']);
         $password = pgsqli_real_escape_string($con,$_POST['password']);
@@ -91,7 +99,7 @@
 <h2>Welcome Farmer!</h2>
 <div class="flex-container">
 <div class="mainDiv">
-    <form method="post" action="cropLogin.php">
+    <form method="post" action="Login.php">
        
         <div class="rowContainer">
             
@@ -106,7 +114,7 @@
         </div>
           <div class="rowContainer">
             <div class="col1">&nbsp;</div>
-            <div class="col2"><input  name="login" value="Login"  href="cropLogin.php" class="btn btn-warning"></div> 
+            <div class="col2"><input  name="login" value="Login"  href="Login.php" class="btn btn-warning"></div> 
         </div>
         
     </form>
