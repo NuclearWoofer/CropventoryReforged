@@ -5,11 +5,11 @@
     include_once __DIR__ . "/functions.php";
     include __DIR__ . "/model/db.php";
 
-    // //DYNAMMODB CONNECTION
+    //DYNAMMODB CONNECTION
     // use Aws\DynamoDb\DynamoDbClient;
     // $client = DynamoDbClient::factory(array(
-    //     'profile' => '<profile in your aws credentials file>',
-    //     'region'  => '<region name>'
+    //     'profile' => 'Malopez1',
+    //     'region'  => 'us-east-1'
     // ));
 
     //PGADMIN SQLCONNECTION
