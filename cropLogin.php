@@ -14,14 +14,14 @@
 
     //PGADMIN SQLCONNECTION
     if(isset($_POST['login'])){
-        $userName = pgsqli_real_escape_string($con,$_POST['userName']);
-        $password = pgsqli_real_escape_string($con,$_POST['password']);
+        $userName = pg_escape_string($con,$_POST['userName']);
+        $password = pg_escape_string($con,$_POST['password']);
 
     if ($userName = !"" && $password = !""){
 
         $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and password='".$password."'";
-        $result = pgsqli_query($con,$sql_query);
-        $row = pgsqli_fetch_array($result);
+        $result = pg_query($con,$sql_query);
+        $row = pg_fetch_array($result);
 
         $count = $row['cntUser'];
 
