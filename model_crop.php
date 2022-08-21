@@ -22,7 +22,7 @@
     }
 
 
-    function getCrops ($cropId) {
+    function getCrops () {
         global $db;
         
         $results = [];
