@@ -9,7 +9,7 @@
             "host": "ec2-50-19-255-190.compute-1.amazonaws.com",
             "dbname": "dbbrve4ld95mpp",
             "user": "pmuibcycqdcjyx",
-            "password": "",
+            "password": "cd83ea5e98c4341ba6c296aba89a4a0b95725b709ef4705ee37130366b093c97",
             "emptyPasswordInput": false,
             "port": "5432",
             "profileName": "CropventoryReforged"
