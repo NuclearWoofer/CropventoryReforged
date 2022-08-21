@@ -6,7 +6,7 @@
         $cropId = filter_input(INPUT_POST, 'cropId');
         deleteCrop ($cropId);
     }
-    $crops = getCrops ();
+    $crops = getCrops ($cropId);
     //ADD Crops
     if (isPostRequest()) {
         $cropName = filter_input(INPUT_POST, 'cropName');
