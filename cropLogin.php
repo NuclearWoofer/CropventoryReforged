@@ -15,23 +15,23 @@
     //PGADMIN SQLCONNECTION
     if(isset($_POST['login'])){
         $userName = pg_escape_string($con,$_POST['userName']);
-        $password = pg_escape_string($con,$_POST['password']);
+        $userPassword = pg_escape_string($con,$_POST['userPassword']);
 
-    if ($userName = !"" && $password = !""){
+    if ($userName = !"" && $userPassword = !""){
 
-        $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and password='".$password."'";
+        $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and userPassword='".$userPassword."'";
         $result = pg_query($con,$sql_query);
         $row = pg_fetch_array($result);
 
         $count = $row['cntUser'];
 
-        $result = checkLogin($userName, $password);
+        $result = checkLogin($userName, $userPassword);
 
         if($count > 0){
             $_SESSION['userName'] = $userName;
             header('Location: cropView.php');
         }else{
-            echo "Invalid username and password";
+            echo "Invalid username and userPassword";
         }
 
     }
@@ -109,8 +109,8 @@
             <div class="col2"><input type="text" name="userName" ></div> 
         </div>
         <div class="rowContainer">
-            <div class="col1">Password:</div>
-            <div class="col2"><input type="password" name="password" ></div> 
+            <div class="col1">userPassword:</div>
+            <div class="col2"><input type="userPassword" name="userPassword" ></div> 
         </div>
           <div class="rowContainer">
             <div class="col1">&nbsp;</div>
@@ -135,8 +135,8 @@
             <div class="col2"><input type="text" name="userName"></div> 
         </div>
         <div class="rowContainer">
-            <div class="col1">Password:</div>
-            <div class="col2"><input type="password" name="password"></div> 
+            <div class="col1">userPassword:</div>
+            <div class="col2"><input type="userPassword" name="userPassword"></div> 
         </div>
           <div class="rowContainer">
             <div class="col1">&nbsp;</div>
