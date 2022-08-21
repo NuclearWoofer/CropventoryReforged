@@ -12,7 +12,7 @@ $ini = parse_ini_file( __DIR__ . '/dbconfig.ini');
 
 $g_set_sql_mode = true;
 
-$db = new PDO(  "pg_connect:host=" . $ini['servername'] . 
+$db = new PDO(  "pgsql:host=" . $ini['servername'] . 
                 ";port=" . $ini['port'] . 
                 ";dbname=" . $ini['dbname'], 
                 $ini['username'], 
