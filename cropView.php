@@ -204,7 +204,7 @@
         <br />
         <a href="./searchsort.php">Search and Sort Crops</a> 
         <br />
-        <a href="login.php">Logout</a>
+        <a href="cropLogin.php">Logout</a>
     </div>
     </div>
 </body>
