@@ -22,7 +22,7 @@
     }
 
 
-    function getCrops () {
+    function getCrops ($cropId) {
         global $db;
         
         $results = [];
@@ -39,9 +39,7 @@
     
 //     function getCrop ($cropId) {
 //         global $db;
-       
 //        $results = [];
-       
 //        $stmt = $db->prepare("SELECT cropId, cropName, cropPlanted, cropQty FROM crops WHERE cropId=:cropId");
 //        $stmt->bindValue(':cropId', $cropId);
       

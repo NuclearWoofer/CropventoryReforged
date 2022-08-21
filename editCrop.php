@@ -10,7 +10,7 @@
             $cropId = filter_input(INPUT_GET, 'cropId');
 
             if ($action == "update") {
-                $row = getCrop($cropId);
+                $row = getCrops($cropId);
                 $cropName = $row['cropName'];
                 $cropPlanted = $row['cropPlanted'];
                 $cropQty = $row['cropQty'];
