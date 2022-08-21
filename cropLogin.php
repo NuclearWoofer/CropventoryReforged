@@ -19,7 +19,7 @@
 
     if ($userName = !"" && $userPassword = !""){
 
-        $sql_query = "select count(0) as cntUser from users where userName='".$userName."' and userPassword='".$userPassword."'";
+        $sql_query = "select count(0) as cntUser from users where Username='".$userName."' and Password='".$userPassword."'";
         $result = pg_query($con,$sql_query);
         $row = pg_fetch_array($result);
 
@@ -31,7 +31,7 @@
             $_SESSION['userName'] = $userName;
             header('Location: cropView.php');
         }else{
-            echo "Invalid username and userPassword";
+            echo "Invalid username and Password";
         }
 
     }

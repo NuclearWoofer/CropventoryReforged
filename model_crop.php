@@ -33,7 +33,6 @@
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                  
          }
-         
          return ($results);
     }
 
