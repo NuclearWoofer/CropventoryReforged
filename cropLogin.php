@@ -106,11 +106,11 @@
         </div>
         <div class="rowContainer">
             <div class="col1">User Name:</div>
-            <div class="col2"><input type="text" name="userName" ></div> 
+            <div class="col2"><input type="text" name="Username" ></div> 
         </div>
         <div class="rowContainer">
             <div class="col1">userPassword:</div>
-            <div class="col2"><input type="userPassword" name="userPassword" ></div> 
+            <div class="col2"><input type="userPassword" name="Password" ></div> 
         </div>
           <div class="rowContainer">
             <div class="col1">&nbsp;</div>
