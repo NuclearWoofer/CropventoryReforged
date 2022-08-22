@@ -1,5 +1,24 @@
 <?php
 //**************************
+// MSSQL DATABASE CRED
+//**************************
+
+// $serverName = "HAR-HRB9CZLTJTI"; //serverName\instanceName
+
+// // Since UID and PWD are not specified in the $connectionInfo array,
+// // The connection will be attempted using Windows Authentication.
+// $connectionInfo = array( "Database"=>"Cropventory");
+// $conn = sqlsrv_connect( $serverName, $connectionInfo);
+
+// if( $conn ) {
+//      echo "Connection established.<br />";
+// }else{
+//      echo "Connection could not be established.<br />";
+//      die( print_r( sqlsrv_errors(), true));
+// }
+
+
+//**************************
 // AWS DATABASE CRED
 //**************************
 
@@ -35,5 +54,8 @@
 //**************************
 
 //     $db_connection = pg_connect("host=ec2-50-19-255-190.compute-1.amazonaws.com dbname=dbbrve4ld95mpp user=pmuibcycqdcjyx password=cd83ea5e98c4341ba6c296aba89a4a0b95725b709ef4705ee37130366b093c97");
-// ?>
+
+
+
+?>
 
